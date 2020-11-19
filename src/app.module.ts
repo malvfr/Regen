@@ -5,13 +5,19 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { PortfolioModule } from './portfolio/portfolio.module';
 import { UsersModule } from './users/users.module';
+import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [GraphQLModule.forRoot({
     debug: true,
     playground: true,
     autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-  }), PortfolioModule, UsersModule,],
+  }),
+  ConfigModule.forRoot({
+    envFilePath: './resources/config/.env'
+  }),
+    PortfolioModule, UsersModule, DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })

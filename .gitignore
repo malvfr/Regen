@@ -36,3 +36,10 @@ lerna-debug.log*
 # GraphQL Schema
 
 src/schema.gql
+
+# database data
+**/postgres_data
+
+# env variables
+
+.env
