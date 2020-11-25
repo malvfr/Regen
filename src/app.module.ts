@@ -7,7 +7,6 @@ import { PortfolioModule } from './portfolio/portfolio.module';
 import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
-import { StocksModule } from './stocks/stocks.module';
 
 @Module({
   imports: [GraphQLModule.forRoot({
@@ -18,7 +17,7 @@ import { StocksModule } from './stocks/stocks.module';
   ConfigModule.forRoot({
     envFilePath: './resources/config/.env'
   }),
-    PortfolioModule, UsersModule, DatabaseModule, StocksModule],
+    PortfolioModule, UsersModule, DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })
