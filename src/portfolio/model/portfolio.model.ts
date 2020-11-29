@@ -1,20 +1,41 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  OneToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import PurchasedStocks from '../purchased-stocks/model/purchased-stocks.model';
 
 @Entity()
 export default class Portfolio {
-    @PrimaryGeneratedColumn('uuid')
-    id?: string;
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
 
-    @OneToMany(() => PurchasedStocks, ps => ps.portfolio)
-    purchasedStocks: PurchasedStocks[];
+  @OneToMany(
+    () => PurchasedStocks,
+    ps => ps.portfolio,
+  )
+  purchasedStocks: PurchasedStocks[];
 
-    @Column()
-    total: number;
+  // Create USER assoc when User is ready.
 
-    @Column()
-    performance: number;
+  @CreateDateColumn()
+  createdAt: string;
 
-    @Column()
-    startDate: string;
+  @UpdateDateColumn()
+  updatedAt: string;
+
+  @Column({
+    length: 255,
+  })
+  name: string;
+
+  @Column({
+    type: 'boolean',
+    default: true,
+  })
+  active: boolean;
 }

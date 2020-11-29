@@ -6,10 +6,15 @@ import { UpdatePurchasedStockInput } from './dto/update-purchased-stock.input';
 
 @Resolver(() => PurchasedStock)
 export class PurchasedStocksResolver {
-  constructor(private readonly purchasedStocksService: PurchasedStocksService) {}
+  constructor(
+    private readonly purchasedStocksService: PurchasedStocksService,
+  ) {}
 
   @Mutation(() => PurchasedStock)
-  createPurchasedStock(@Args('createPurchasedStockInput') createPurchasedStockInput: CreatePurchasedStockInput) {
+  createPurchasedStock(
+    @Args('createPurchasedStockInput')
+    createPurchasedStockInput: CreatePurchasedStockInput,
+  ) {
     return this.purchasedStocksService.create(createPurchasedStockInput);
   }
 
@@ -24,8 +29,14 @@ export class PurchasedStocksResolver {
   }
 
   @Mutation(() => PurchasedStock)
-  updatePurchasedStock(@Args('updatePurchasedStockInput') updatePurchasedStockInput: UpdatePurchasedStockInput) {
-    return this.purchasedStocksService.update(updatePurchasedStockInput.id, updatePurchasedStockInput);
+  updatePurchasedStock(
+    @Args('updatePurchasedStockInput')
+    updatePurchasedStockInput: UpdatePurchasedStockInput,
+  ) {
+    return this.purchasedStocksService.update(
+      updatePurchasedStockInput.id,
+      updatePurchasedStockInput,
+    );
   }
 
   @Mutation(() => PurchasedStock)

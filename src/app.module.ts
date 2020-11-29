@@ -10,16 +10,21 @@ import { ConfigModule } from '@nestjs/config';
 import { PurchasedStocksModule } from './portfolio/purchased-stocks/purchased-stocks.module';
 
 @Module({
-  imports: [GraphQLModule.forRoot({
-    debug: true,
-    playground: true,
-    autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-  }),
-  ConfigModule.forRoot({
-    envFilePath: './resources/config/.env'
-  }),
-    PortfolioModule, UsersModule, DatabaseModule, PurchasedStocksModule],
+  imports: [
+    GraphQLModule.forRoot({
+      debug: true,
+      playground: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
+    ConfigModule.forRoot({
+      envFilePath: './resources/config/.env',
+    }),
+    PortfolioModule,
+    UsersModule,
+    DatabaseModule,
+    PurchasedStocksModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

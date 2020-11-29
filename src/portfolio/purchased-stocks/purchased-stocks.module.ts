@@ -3,6 +3,6 @@ import { PurchasedStocksService } from './purchased-stocks.service';
 import { PurchasedStocksResolver } from './purchased-stocks.resolver';
 
 @Module({
-  providers: [PurchasedStocksResolver, PurchasedStocksService]
+  providers: [PurchasedStocksResolver, PurchasedStocksService],
 })
 export class PurchasedStocksModule {}
