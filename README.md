@@ -25,12 +25,12 @@ $ npm run start:prod
 ```
 ## Env variables
 
-Create a .env file at /resources with the following content:
+Create a .env file at /resources/config with the following content:
 
 ### Database
 ```
-POSTGRES_HOST=5432
-POSTGRES_PORT=postgres
+POSTGRES_PORT=5432
+POSTGRES_HOST=localhost
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DATABASE=regen
