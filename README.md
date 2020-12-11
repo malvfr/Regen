@@ -19,6 +19,21 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+
+
+```
+## Env variables
+
+Create a .env file at /resources/config with the following content:
+
+### Database
+```
+POSTGRES_PORT=5432
+POSTGRES_HOST=localhost
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DATABASE=regen
 ```
 
 ## Test
