@@ -8,4 +8,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [PortfolioResolver, PortfolioService],
   imports: [TypeOrmModule.forFeature([Portfolio])],
 })
-export class PortfolioModule {}
+export class PortfolioModule { }

@@ -4,18 +4,22 @@ import { Repository } from 'typeorm';
 import { CreatePortfolioInput } from './dto/create-portfolio.input';
 import { UpdatePortfolioInput } from './dto/update-portfolio.input';
 import Portfolio from './model/portfolio.model';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { Inject, LoggerService } from '@nestjs/common';
 
 @Injectable()
 export class PortfolioService {
   constructor(
     @InjectRepository(Portfolio) private repo: Repository<Portfolio>,
-  ) {}
+    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService
+  ) { }
 
   create(createPortfolioInput: CreatePortfolioInput) {
     return 'This action adds a new portfolio';
   }
 
   async findAll(): Promise<Portfolio[]> {
+    this.logger.log("POPI, EL JUETA", PortfolioService.name);
     return this.repo.find();
   }
 

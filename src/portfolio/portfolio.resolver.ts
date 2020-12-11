@@ -4,9 +4,10 @@ import { Portfolio } from './entities/portfolio.entity';
 import { CreatePortfolioInput } from './dto/create-portfolio.input';
 import { UpdatePortfolioInput } from './dto/update-portfolio.input';
 
+
 @Resolver(() => Portfolio)
 export class PortfolioResolver {
-  constructor(private readonly portfolioService: PortfolioService) {}
+  constructor(private readonly portfolioService: PortfolioService) { }
 
   @Mutation(() => Portfolio)
   createPortfolio(
